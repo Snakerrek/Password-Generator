@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
+    <title>Password Generator</title>
+  </head>
+  <body>
+    <main>
+      <section class="glass">
+        <h1>Password Generator</h1>
+        <h3>placeholder</h3>
+        <form>
+          <label for="charAmountRange">Characters Amount</label>
+          <input type="range" min="1" max="32" value="8" id="charAmountRange" />
+          <input
+            type="number"
+            min="1"
+            max="32"
+            value="8"
+            id="charAmountNumber"
+          />
+
+          <label for="upLetters">Uppercase Letters</label>
+          <input type="checkbox" id="upLetters" />
+
+          <label for="numbers">Numbers</label>
+          <input type="checkbox" id="numbers" />
+
+          <label for="symbols">Symbols</label>
+          <input type="checkbox" id="symbols" />
+
+          <button type="submit">Generate Password</button>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
