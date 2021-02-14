@@ -7,6 +7,7 @@
 
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
     <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Chewy&family=Luckiest+Guy&display=swap"
       rel="stylesheet"
@@ -19,30 +20,30 @@
       <div class="card-holder">
         <div class="card shadow-3d">
           <h2>Generate your password</h2>
-          <h3 class="password-display">12345678901234567890123456789012</h3>
-          <form>
+          <h3 class="password-display" id="passwordDisplay">password</h3>
+          <form id="passwordGeneratorForm">
             <div class="setting">
-              <label for="char-amount-range">Characters Amount</label>
+              <label for="charAmountRange">Characters Amount</label>
               <div class="char-amount-container">
                 <input
                   type="range"
                   min="1"
                   max="32"
                   value="8"
-                  id="char-amount-range"
+                  id="charAmountRange"
                 />
                 <input
                   type="number"
                   min="1"
                   max="32"
                   value="8"
-                  id="char-amount-number"
+                  id="charAmountNumber"
                 />
               </div>
             </div>
             <div class="setting">
-              <label for="up-letters">Uppercase Letters</label>
-              <input type="checkbox" id="up-letters" />
+              <label for="upLetters">Uppercase Letters</label>
+              <input type="checkbox" id="upLetters" />
             </div>
             <div class="setting">
               <label for="numbers">Numbers</label>
