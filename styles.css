@@ -25,6 +25,14 @@ label {
   margin-bottom: 0.5rem;
 }
 
+input[type='number'] {
+  width: 2rem;
+}
+input[type='checkbox'],
+input[type='range'] {
+  cursor: pointer;
+}
+
 .glass {
   background: linear-gradient(
     to right bottom,
@@ -53,15 +61,25 @@ label {
     rgba(255, 255, 255, 0.15)
   );
   border-radius: 2rem;
-  width: 400px;
-  height: 600px;
+  width: 450px;
+  height: 700px;
   margin: 2rem;
   display: flex;
   align-items: center;
   flex-direction: column;
 }
+
+.char-amount-container {
+  display: flex;
+  align-items: center;
+}
+
 .setting {
-  background: white;
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0.1)
+  );
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -72,16 +90,44 @@ label {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   transition: ease 0.5s;
 }
-.setting:hover {
-  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-}
-.char-amount-container {
+.password-display {
+  background-color: white;
+  font-size: 1.5rem;
+  padding: 1rem;
+  margin-bottom: 0;
+  height: 2rem;
+  width: 70%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   display: flex;
+  justify-content: center;
   align-items: center;
+  word-break: break-all;
+  border-radius: 1rem;
+  transition: ease 0.5s;
 }
 
-input[type='number'] {
-  width: 2rem;
+.setting:hover,
+.password-display:hover {
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+.btn {
+  margin-top: 1rem;
+  background: white;
+  border: none;
+  height: 3rem;
+  font-size: 1.5rem;
+  width: 100%;
+  border-radius: 2rem;
+  font-family: 'Chewy', cursive;
+  cursor: pointer;
+  transition: ease 0.5s;
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
 .shadow-3d {
