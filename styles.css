@@ -7,6 +7,24 @@ body {
   justify-content: center;
 }
 
+h1 {
+  margin: 0;
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin: 1.5rem 1.5rem 0 1.5rem;
+  font-family: 'Chewy', cursive;
+}
+
+label {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
 .glass {
   background: linear-gradient(
     to right bottom,
@@ -48,15 +66,24 @@ body {
   align-items: center;
   flex-direction: column;
   flex-flow: column;
-  margin: 1rem;
+  margin: 1.5rem;
   padding: 0.5rem;
   border-radius: 1rem;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   transition: ease 0.5s;
 }
 .setting:hover {
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }
+.char-amount-container {
+  display: flex;
+  align-items: center;
+}
+
+input[type='number'] {
+  width: 2rem;
+}
+
 .shadow-3d {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,

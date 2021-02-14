@@ -7,6 +7,10 @@
 
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
     <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chewy&family=Luckiest+Guy&display=swap"
+      rel="stylesheet"
+    />
     <title>Password Generator</title>
   </head>
   <body>
@@ -16,35 +20,35 @@
         <div class="card shadow-3d">
           <h2>Generate your password</h2>
           <h3>password</h3>
-          <form class="form">
-            <div class="setting classic-shadow">
-              <label for="charAmountRange">Characters Amount</label>
-              <div>
+          <form>
+            <div class="setting">
+              <label for="char-amount-range">Characters Amount</label>
+              <div class="char-amount-container">
                 <input
                   type="range"
                   min="1"
                   max="32"
                   value="8"
-                  id="charAmountRange"
+                  id="char-amount-range"
                 />
                 <input
                   type="number"
                   min="1"
                   max="32"
                   value="8"
-                  id="charAmountNumber"
+                  id="char-amount-number"
                 />
               </div>
             </div>
-            <div class="setting classic-shadow">
-              <label for="upLetters">Uppercase Letters</label>
-              <input type="checkbox" id="upLetters" />
+            <div class="setting">
+              <label for="up-letters">Uppercase Letters</label>
+              <input type="checkbox" id="up-letters" />
             </div>
-            <div class="setting classic-shadow">
+            <div class="setting">
               <label for="numbers">Numbers</label>
               <input type="checkbox" id="numbers" />
             </div>
-            <div class="setting classic-shadow">
+            <div class="setting">
               <label for="symbols">Symbols</label>
               <input type="checkbox" id="symbols" />
             </div>
