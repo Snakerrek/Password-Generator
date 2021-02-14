@@ -1,4 +1,5 @@
 body {
+  margin: 0;
   min-height: 100vh;
   background: linear-gradient(to left bottom, #c3bef0, #cca8e9);
   display: flex;
@@ -12,13 +13,50 @@ body {
     rgba(255, 255, 255, 0.5),
     rgba(255, 255, 255, 0.15)
   );
-  min-height: 80vh;
-  width: 75%;
+  min-height: 75vh;
+  width: 75vw;
   border-radius: 3rem;
   z-index: 2;
   backdrop-filter: blur(1.5rem);
+  padding: 3rem;
+  text-align: center;
+}
+.card-holder {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
 }
 
+.card {
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0.15)
+  );
+  border-radius: 2rem;
+  width: 400px;
+  height: 600px;
+  margin: 2rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.setting {
+  background: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex-flow: column;
+  margin: 1rem;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  transition: ease 0.5s;
+}
+.setting:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
 .shadow-3d {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
