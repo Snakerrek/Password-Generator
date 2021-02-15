@@ -36,6 +36,12 @@ function calculateTimeToBreakPassword(password) {
 
 function representTime(time) {
   console.log(time);
+  // millennia (1000 years)
+  // years (12 months)
+  // months (~30 days)
+  // days (24 hours)
+  // hours (60 minutes)
+  // minutes (60 seconds)
 }
 
 // function for grading password from 0 to 5 based on rules described below

@@ -23,6 +23,9 @@
           <h2>Generate your password</h2>
           <h3 class="password-display" id="passwordDisplay">password</h3>
           <form id="passwordGeneratorForm">
+            <button type="submit" class="btn shadow-3d">
+              Generate Password
+            </button>
             <div class="setting">
               <label for="charAmountRange">Characters Amount</label>
               <div class="char-amount-container">
@@ -54,9 +57,6 @@
               <label for="symbols">Symbols</label>
               <input type="checkbox" id="symbols" />
             </div>
-            <button type="submit" class="btn shadow-3d">
-              Generate Password
-            </button>
           </form>
         </div>
         <div class="card shadow-3d">
@@ -66,6 +66,7 @@
               <label for="passwordToCheck">Type your password</label>
               <input type="text" id="passwordToCheck" />
             </div>
+            <button type="submit" class="check-btn shadow-3d">Check Password</button>
             <div class="password-segment-container">
               <div class="password-segment"></div>
               <div class="password-segment"></div>
@@ -74,7 +75,30 @@
               <div class="password-segment"></div>
             </div>
             <h3 class="password-grade" id="passwordGrade"></h2>
-            <button type="submit" class="btn shadow-3d">Check Password</button>
+            <div class="time-to-break">
+              <h3 class="time-text-header">Time needed to break your password</h2>
+              <div class="time">
+                <h3 id="millennia">100 millennia</h3>
+              </div>
+              <div class="time">
+                <h3 id="years">100 years</h3>
+              </div>
+              <div class="time">
+                <h3 id="months">100 months</h3>
+              </div>
+              <div class="time">
+                <h3 id="days">100 days</h3>
+              </div>
+              <div class="time">
+                <h3 id="hours">100 hours</h3>
+              </div>
+              <div class="time">
+                <h3 id="minutes">100 minutes</h3>
+              </div>
+              <div class="time">
+                <h3 id="seconds">100 seconds</h3>
+              </div>
+            </div>
           </form>
         </div>
       </div>

@@ -1,3 +1,5 @@
+/* GENERAL */
+
 body {
   margin: 0;
   min-height: 100vh;
@@ -37,6 +39,8 @@ input[type='text'] {
   font-size: 1.5rem;
 }
 
+/* MAIN PAGE */
+
 .glass {
   background: linear-gradient(
     to right bottom,
@@ -66,12 +70,14 @@ input[type='text'] {
   );
   border-radius: 2rem;
   width: 450px;
-  height: 700px;
-  margin: 2rem;
+  height: 750px;
+  margin: 1rem;
   display: flex;
   align-items: center;
   flex-direction: column;
 }
+
+/* PASSWORD GENERATOR */
 
 .char-amount-container {
   display: flex;
@@ -98,7 +104,7 @@ input[type='text'] {
   background-color: white;
   font-size: 1.5rem;
   padding: 1rem;
-  margin-bottom: 0;
+  margin-bottom: 2.2rem;
   height: 2rem;
   width: 70%;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -134,10 +140,12 @@ input[type='text'] {
     rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
+/* PASSWORD CHECKER */
 .password-text-container {
   background-color: white;
   font-size: 1.5rem;
   padding: 1rem;
+  margin-bottom: 0;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   display: flex;
   justify-content: center;
@@ -146,6 +154,7 @@ input[type='text'] {
   transition: ease 0.5s;
 }
 .password-segment-container {
+  margin-top: 1rem;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -161,6 +170,51 @@ input[type='text'] {
   color: red;
 }
 
+.time-to-break {
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0.1)
+  );
+  margin: 1rem;
+  padding: 0.2rem;
+  margin-bottom: 0;
+  border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transition: ease 0.5s;
+}
+
+.time-to-break:hover {
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+.time {
+  margin: 0;
+  padding: 0;
+  line-height: 0.8;
+  font-weight: bold;
+}
+
+.time-text-header {
+  font-size: 1.3rem;
+  margin: 1.5rem 1.5rem 0 1.5rem;
+  font-family: 'Chewy', cursive;
+}
+
+.check-btn {
+  margin-top: 1rem;
+  background: white;
+  border: none;
+  height: 3rem;
+  font-size: 1.5rem;
+  width: 75%;
+  border-radius: 2rem;
+  font-family: 'Chewy', cursive;
+  cursor: pointer;
+  transition: ease 0.5s;
+}
+
+/* OTHERS */
 .shadow-3d {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
