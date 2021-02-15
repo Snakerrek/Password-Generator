@@ -15,6 +15,8 @@ charAmountRange.addEventListener('input', syncCharacterAmount);
 charAmountNumber.addEventListener('input', syncCharacterAmount);
 
 passwordGeneratorForm.addEventListener('submit', (event) => {
+  document.activeElement.blur();
+
   event.preventDefault();
   const settings = generatePasswordSettings();
   generateCharactersArray(settings);

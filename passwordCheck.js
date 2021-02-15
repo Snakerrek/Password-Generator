@@ -8,6 +8,8 @@ passwordCheckForm.addEventListener('submit', (event) => {
 
 // Main function for checking password
 function checkPassword(passwordToCheck) {
+  document.activeElement.blur(); // button focus fix
+
   let grade = gradePassword(passwordToCheck);
   updatePasswordGradeText(grade);
   updatePasswordGradeGraphic(grade);
