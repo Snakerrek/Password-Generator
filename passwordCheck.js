@@ -6,24 +6,39 @@ passwordCheckForm.addEventListener('submit', (event) => {
   checkPassword(passwordToCheck.value);
 });
 
+// Main function for checking password
 function checkPassword(passwordToCheck) {
   let grade = gradePassword(passwordToCheck);
-
   updatePasswordGradeText(grade);
   updatePasswordGradeGraphic(grade);
 
-  calculateTimeToBreakPassword(passwordToCheck);
+  let timeToBreakPasswordInSeconds = calculateTimeToBreakPassword(
+    passwordToCheck
+  );
+
+  representTime(timeToBreakPasswordInSeconds);
 }
 
+// Function for calculating estimated time to break a password (Not really reliable outcome)
+// Calculations are based on numbers provided here: https://security.stackexchange.com/questions/68930/john-the-ripper-calculating-brute-force-time-to-crack-password
 function calculateTimeToBreakPassword(password) {
   const passwordLength = password.length;
   const passwordDescription = describePassword(password);
-  const possibleCharactersCombination = Math.pow(
+  const possibleCombinations = Math.pow(
     passwordDescription.possibleCharacters,
     passwordLength
   );
+  const hashingCalculations = possibleCombinations * 12;
+  const timeInSeconds = hashingCalculations / 14273; // 14273 c/s
+
+  return timeInSeconds;
 }
 
+function representTime(time) {
+  console.log(time);
+}
+
+// function for grading password from 0 to 5 based on rules described below
 function gradePassword(password) {
   // GRADING RULES
   // Longer password is better
@@ -46,6 +61,7 @@ function gradePassword(password) {
   return grade;
 }
 
+// this function take password and return object that describe password
 function describePassword(password) {
   let passwordDescription = {
     bigLettersUsed: false,
@@ -83,6 +99,7 @@ function describePassword(password) {
   return passwordDescription;
 }
 
+// This function shows text describing password strength
 function updatePasswordGradeText(grade) {
   const passwordGrade = document.getElementById('passwordGrade');
   let color;
@@ -117,6 +134,7 @@ function updatePasswordGradeText(grade) {
   passwordGrade.textContent = text;
 }
 
+// This function grabs all gradeSegments and 'colors' them to represent the password strength
 function updatePasswordGradeGraphic(grade) {
   const gradeSegments = document.getElementsByClassName('password-segment');
   color = 'red';
