@@ -19,7 +19,7 @@ function checkPassword(passwordToCheck) {
   );
 
   const time = representTime(timeToBreakPasswordInSeconds);
-  updateTime(time);
+  updateTime(time, timeToBreakPasswordInSeconds);
 }
 
 //Function for calculating estimated time to break a password (Not really reliable outcome)
@@ -72,7 +72,7 @@ function representTime(timeInSeconds) {
   return time;
 }
 
-function updateTime(time) {
+function updateTime(time, timeInSeconds) {
   let timePeriods = [
     document.getElementById('millennia'),
     document.getElementById('years'),
@@ -81,13 +81,12 @@ function updateTime(time) {
     document.getElementById('minutes'),
     document.getElementById('seconds'),
   ];
-
   if (time.millennia > 999999999999999) {
     for (let i = 1; i < timePeriods.length; i++) {
       timePeriods[i].style.display = 'none';
     }
     timePeriods[0].innerText = `Infinite time`;
-  } else if (time < 1) {
+  } else if (timeInSeconds < 1) {
     for (let i = 1; i < timePeriods.length; i++) {
       timePeriods[i].style.display = 'none';
     }

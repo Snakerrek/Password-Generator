@@ -51,6 +51,7 @@ input[type='text'] {
   width: 75vw;
   border-radius: 3rem;
   z-index: 2;
+  -webkit-backdrop-filter: blur(1.5rem);
   backdrop-filter: blur(1.5rem);
   padding: 3rem;
   text-align: center;
