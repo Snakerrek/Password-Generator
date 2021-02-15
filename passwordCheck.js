@@ -7,56 +7,80 @@ passwordCheckForm.addEventListener('submit', (event) => {
 });
 
 function checkPassword(passwordToCheck) {
-  grade = gradePassword(passwordToCheck);
+  let grade = gradePassword(passwordToCheck);
 
   updatePasswordGradeText(grade);
   updatePasswordGradeGraphic(grade);
+
+  calculateTimeToBreakPassword(passwordToCheck);
+}
+
+function calculateTimeToBreakPassword(password) {
+  const passwordLength = password.length;
+  const passwordDescription = describePassword(password);
+  const possibleCharactersCombination = Math.pow(
+    passwordDescription.possibleCharacters,
+    passwordLength
+  );
 }
 
 function gradePassword(password) {
-  let passwordLength = password.length;
-  let possibleCharacters = countPossibleCharactersInPassword(password);
-  let possibleCharactersCombination = Math.pow(
-    possibleCharacters,
-    passwordLength
-  );
-  // just for debug
-  console.log(`Possible characters: ${possibleCharacters}`);
-  console.log(`Password length: ${passwordLength}`);
-  console.log(
-    `Number of possible character combinations: ${possibleCharactersCombination}`
-  );
+  // GRADING RULES
+  // Longer password is better
+  // password with big letters, symbols and numbers are also stronger
+
+  const passwordDescription = describePassword(password);
+  let grade = 0;
+
+  if (password.length > 7) {
+    grade++;
+    if (password.length > 15) {
+      grade++;
+    }
+  }
+
+  if (passwordDescription.bigLettersUsed) grade++;
+  if (passwordDescription.symbolsUsed) grade++;
+  if (passwordDescription.numbersUsed) grade++;
+
+  return grade;
 }
 
-function countPossibleCharactersInPassword(password) {
-  let bigLettersUsed = false;
-  let smallLettersUsed = false;
-  let symbolsUsed = false;
-  let numbersUsed = false;
-  let possibleCharacters = 0;
+function describePassword(password) {
+  let passwordDescription = {
+    bigLettersUsed: false,
+    smallLettersUsed: false,
+    symbolsUsed: false,
+    numbersUsed: false,
+    possibleCharacters: 0,
+  };
 
   for (let i = 0; i < password.length; i++) {
     let char = password[i].charCodeAt(0);
     if (char > 96 && char < 123) {
-      smallLettersUsed = true;
+      passwordDescription.smallLettersUsed = true;
     } else if (char > 64 && char < 91) {
-      bigLettersUsed = true;
+      passwordDescription.bigLettersUsed = true;
     } else if (char > 47 && char < 58) {
-      numbersUsed = true;
+      passwordDescription.numbersUsed = true;
     } else if (
       (char > 32 && char < 48) ||
       (char > 90 && char < 97) ||
       (char > 57 && char < 65)
     ) {
-      symbolsUsed = true;
+      passwordDescription.symbolsUsed = true;
     }
   }
-  if (smallLettersUsed) possibleCharacters += 26;
-  if (bigLettersUsed) possibleCharacters += 26;
-  if (numbersUsed) possibleCharacters += 10;
-  if (symbolsUsed) possibleCharacters += 27;
+  if (passwordDescription.smallLettersUsed)
+    passwordDescription.possibleCharacters += 26;
+  if (passwordDescription.bigLettersUsed)
+    passwordDescription.possibleCharacters += 26;
+  if (passwordDescription.numbersUsed)
+    passwordDescription.possibleCharacters += 10;
+  if (passwordDescription.symbolsUsed)
+    passwordDescription.possibleCharacters += 27;
 
-  return possibleCharacters;
+  return passwordDescription;
 }
 
 function updatePasswordGradeText(grade) {
@@ -64,6 +88,10 @@ function updatePasswordGradeText(grade) {
   let color;
   let text;
   switch (grade) {
+    case 0:
+      color = 'red';
+      text = 'Extremely Weak';
+      break;
     case 1:
       color = 'red';
       text = 'Very Weak';

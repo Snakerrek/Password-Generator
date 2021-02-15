@@ -135,7 +135,15 @@ input[type='text'] {
 }
 
 .password-text-container {
-  font-weight: bold;
+  background-color: white;
+  font-size: 1.5rem;
+  padding: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  transition: ease 0.5s;
 }
 .password-segment-container {
   display: flex;
