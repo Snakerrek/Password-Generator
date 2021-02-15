@@ -16,11 +16,12 @@ function checkPassword(passwordToCheck) {
     passwordToCheck
   );
 
-  representTime(timeToBreakPasswordInSeconds);
+  const time = representTime(timeToBreakPasswordInSeconds);
+  updateTime(time);
 }
 
-// Function for calculating estimated time to break a password (Not really reliable outcome)
-// Calculations are based on numbers provided here: https://security.stackexchange.com/questions/68930/john-the-ripper-calculating-brute-force-time-to-crack-password
+//Function for calculating estimated time to break a password (Not really reliable outcome)
+//Calculations are based on numbers that i found on the internet
 function calculateTimeToBreakPassword(password) {
   const passwordLength = password.length;
   const passwordDescription = describePassword(password);
@@ -28,20 +29,78 @@ function calculateTimeToBreakPassword(password) {
     passwordDescription.possibleCharacters,
     passwordLength
   );
-  const hashingCalculations = possibleCombinations * 12;
-  const timeInSeconds = hashingCalculations / 14273; // 14273 c/s
+  // I assume that passwords are not salted, (Radeon 9790 82.G c/s)
+  const timeInSeconds = possibleCombinations / (82 * 1000000000); // 82.G c/s = 82 * 1000000000
 
   return timeInSeconds;
 }
 
-function representTime(time) {
-  console.log(time);
-  // millennia (1000 years)
-  // years (12 months)
-  // months (~30 days)
-  // days (24 hours)
-  // hours (60 minutes)
-  // minutes (60 seconds)
+// Function for turning time in second to time in easier to read format
+function representTime(timeInSeconds) {
+  let time = {
+    millennia: 0,
+    years: 0,
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  };
+  if (timeInSeconds / (1000 * 365 * 24 * 60 * 60) > 1) {
+    time.millennia = Math.floor(timeInSeconds / (1000 * 365 * 24 * 60 * 60));
+    timeInSeconds -= time.millennia * (1000 * 365 * 24 * 60 * 60);
+  }
+  if (timeInSeconds / (365 * 24 * 60 * 60) > 1) {
+    time.years = Math.floor(timeInSeconds / (365 * 24 * 60 * 60));
+    timeInSeconds -= time.years * (365 * 24 * 60 * 60);
+  }
+  if (timeInSeconds / (24 * 60 * 60) > 1) {
+    time.days = Math.floor(timeInSeconds / (24 * 60 * 60));
+    timeInSeconds -= time.days * (24 * 60 * 60);
+  }
+  if (timeInSeconds / (60 * 60) > 1) {
+    time.hours = Math.floor(timeInSeconds / (60 * 60));
+    timeInSeconds -= time.hours * (60 * 60);
+  }
+  if (timeInSeconds / 60 > 1) {
+    time.minutes = Math.floor(timeInSeconds / 60);
+    timeInSeconds -= time.minutes * 60;
+  }
+
+  time.seconds = Math.floor(timeInSeconds);
+  return time;
+}
+
+function updateTime(time) {
+  let timePeriods = [
+    document.getElementById('millennia'),
+    document.getElementById('years'),
+    document.getElementById('days'),
+    document.getElementById('hours'),
+    document.getElementById('minutes'),
+    document.getElementById('seconds'),
+  ];
+
+  if (time.millennia > 999999999999999) {
+    for (let i = 1; i < timePeriods.length; i++) {
+      timePeriods[i].style.display = 'none';
+    }
+    timePeriods[0].innerText = `Infinite time`;
+  } else if (time.seconds === 0) {
+    for (let i = 1; i < timePeriods.length; i++) {
+      timePeriods[i].style.display = 'none';
+    }
+    timePeriods[0].innerText = `Instant`;
+  } else {
+    for (let i = 1; i < timePeriods.length; i++) {
+      timePeriods[i].style.display = 'block';
+    }
+    timePeriods[0].innerText = `${time.millennia} Millennia`;
+    timePeriods[1].innerText = `${time.years} Years`;
+    timePeriods[2].innerText = `${time.days} Days`;
+    timePeriods[3].innerText = `${time.hours} Hours`;
+    timePeriods[4].innerText = `${time.minutes} Minutes`;
+    timePeriods[5].innerText = `${time.seconds} Seconds`;
+  }
 }
 
 // function for grading password from 0 to 5 based on rules described below
@@ -143,6 +202,9 @@ function updatePasswordGradeText(grade) {
 // This function grabs all gradeSegments and 'colors' them to represent the password strength
 function updatePasswordGradeGraphic(grade) {
   const gradeSegments = document.getElementsByClassName('password-segment');
+  for (let i = 0; i < gradeSegments.length; i++) {
+    gradeSegments[i].style.background = 'none';
+  }
   color = 'red';
   if (grade === 3) {
     color = 'yellow';
