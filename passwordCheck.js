@@ -87,7 +87,7 @@ function updateTime(time) {
       timePeriods[i].style.display = 'none';
     }
     timePeriods[0].innerText = `Infinite time`;
-  } else if (time.seconds < 1) {
+  } else if (time < 1) {
     for (let i = 1; i < timePeriods.length; i++) {
       timePeriods[i].style.display = 'none';
     }
