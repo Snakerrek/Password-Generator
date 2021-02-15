@@ -55,6 +55,7 @@ function generateCharactersArray(passwordSettings) {
   if (passwordSettings.symbols) {
     fillArray(33, 47);
     fillArray(58, 64); // Symbols
+    fillArray(91, 96);
   }
 }
 

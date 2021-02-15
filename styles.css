@@ -137,6 +137,21 @@ input[type='text'] {
 .password-text-container {
   font-weight: bold;
 }
+.password-segment-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.password-segment {
+  width: 50px;
+  height: 15px;
+  border: 2px black solid;
+}
+
+.password-grade {
+  color: red;
+}
 
 .shadow-3d {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
