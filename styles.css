@@ -235,10 +235,18 @@ input[type='text'] {
   position: absolute;
 }
 
-.circle {
+.circle1,
+.circle2 {
   width: 200px;
   height: 200px;
-  top: 5%;
-  right: 10%;
   border-radius: 50%;
+}
+
+.circle1 {
+  top: 2%;
+  right: 5%;
+}
+.circle2 {
+  bottom: 2%;
+  left: 5%;
 }
